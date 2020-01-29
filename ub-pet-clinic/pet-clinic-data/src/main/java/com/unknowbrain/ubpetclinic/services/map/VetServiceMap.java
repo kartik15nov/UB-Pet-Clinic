@@ -1,11 +1,11 @@
 package com.unknowbrain.ubpetclinic.services.map;
 
 import com.unknowbrain.ubpetclinic.model.Vet;
-import com.unknowbrain.ubpetclinic.services.CrudService;
+import com.unknowbrain.ubpetclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
     public Vet findById(Long id) {
