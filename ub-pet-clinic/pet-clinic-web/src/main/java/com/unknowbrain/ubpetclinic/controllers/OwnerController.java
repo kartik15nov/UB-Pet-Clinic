@@ -25,4 +25,9 @@ public class OwnerController {
         model.addAttribute("ownersList", ownerService.findAll().stream().sorted(Comparator.comparing(BaseEntity::getId)).collect(Collectors.toList()));
         return "owners/index";
     }
+
+    @RequestMapping("/find")
+    public String findOwners() {
+        return "notimplemented";
+    }
 }
