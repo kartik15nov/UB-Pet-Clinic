@@ -1,13 +1,25 @@
 package com.unknowbrain.ubpetclinic.services.map;
 
 import com.unknowbrain.ubpetclinic.model.Owner;
+import com.unknowbrain.ubpetclinic.model.PetType;
 import com.unknowbrain.ubpetclinic.services.OwnerService;
+import com.unknowbrain.ubpetclinic.services.PetService;
+import com.unknowbrain.ubpetclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Set;
 
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+
+    private PetService petService;
+    private PetTypeService petTypeService;
+
+    public OwnerServiceMap(PetService petService, PetTypeService petTypeService) {
+        this.petService = petService;
+        this.petTypeService = petTypeService;
+    }
 
     @Override
     public Owner findById(Long id) {
@@ -21,6 +33,23 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner save(Owner object) {
+
+        Objects.requireNonNull(object);
+
+        if (object.getPets() != null) {
+            object.getPets().forEach(pet -> {
+                PetType petType = pet.getPetType();
+                if (petType != null) {
+                    if (petType.getId() != null)
+                        pet.setPetType(petTypeService.save(petType));
+                } else
+                    throw new RuntimeException("Pet Type is required");
+
+                if (pet.getId() == null)
+                    pet.setId(petService.save(pet).getId());
+            });
+        }
+
         return super.save(object);
     }
 
