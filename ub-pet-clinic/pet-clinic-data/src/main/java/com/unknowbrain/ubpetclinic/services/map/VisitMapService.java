@@ -1,14 +1,15 @@
 package com.unknowbrain.ubpetclinic.services.map;
 
 import com.unknowbrain.ubpetclinic.model.Visit;
-import com.unknowbrain.ubpetclinic.services.PetService;
 import com.unknowbrain.ubpetclinic.services.VisitService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override

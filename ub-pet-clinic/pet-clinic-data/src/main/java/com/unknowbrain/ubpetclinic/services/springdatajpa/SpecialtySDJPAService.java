@@ -20,8 +20,8 @@ public class SpecialtySDJPAService implements SpecialtyService {
     }
 
     @Override
-    public Specialty findById(Long aLong) {
-        return specialtyRepository.findById(aLong).orElseThrow(RuntimeException::new);
+    public Specialty findById(Long id) {
+        return specialtyRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
     @Override
@@ -32,17 +32,17 @@ public class SpecialtySDJPAService implements SpecialtyService {
     }
 
     @Override
-    public Specialty save(Specialty object) {
-        return specialtyRepository.save(object);
+    public Specialty save(Specialty specialty) {
+        return specialtyRepository.save(specialty);
     }
 
     @Override
-    public void delete(Specialty object) {
-        specialtyRepository.delete(object);
+    public void delete(Specialty specialty) {
+        specialtyRepository.delete(specialty);
     }
 
     @Override
-    public void deleteById(Long aLong) {
-        specialtyRepository.deleteById(aLong);
+    public void deleteById(Long id) {
+        specialtyRepository.deleteById(id);
     }
 }

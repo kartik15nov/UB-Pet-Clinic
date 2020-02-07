@@ -20,8 +20,8 @@ public class VetSDJPAService implements VetService {
     }
 
     @Override
-    public Vet findById(Long aLong) {
-        return vetRepository.findById(aLong).orElseThrow(RuntimeException::new);
+    public Vet findById(Long id) {
+        return vetRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
     @Override
@@ -32,17 +32,17 @@ public class VetSDJPAService implements VetService {
     }
 
     @Override
-    public Vet save(Vet object) {
-        return vetRepository.save(object);
+    public Vet save(Vet vet) {
+        return vetRepository.save(vet);
     }
 
     @Override
-    public void delete(Vet object) {
-        vetRepository.delete(object);
+    public void delete(Vet vet) {
+        vetRepository.delete(vet);
     }
 
     @Override
-    public void deleteById(Long aLong) {
-        vetRepository.deleteById(aLong);
+    public void deleteById(Long id) {
+        vetRepository.deleteById(id);
     }
 }
