@@ -3,19 +3,13 @@ package com.unknowbrain.ubpetclinic.services.map;
 import com.unknowbrain.ubpetclinic.model.Visit;
 import com.unknowbrain.ubpetclinic.services.PetService;
 import com.unknowbrain.ubpetclinic.services.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 import java.util.Set;
 
+@Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
-
-    private final VisitService visitService;
-    private final PetService petService;
-
-    public VisitMapService(VisitService visitService, PetService petService) {
-        this.visitService = visitService;
-        this.petService = petService;
-    }
 
     @Override
     public Visit findById(Long id) {
