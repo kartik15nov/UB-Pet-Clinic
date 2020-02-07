@@ -2,11 +2,13 @@ package com.unknowbrain.ubpetclinic.services.map;
 
 import com.unknowbrain.ubpetclinic.model.Specialty;
 import com.unknowbrain.ubpetclinic.services.SpecialtyService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class SpecialtyMapService extends AbstractMapService<Specialty, Long> implements SpecialtyService {
     @Override
     public Specialty findById(Long id) {

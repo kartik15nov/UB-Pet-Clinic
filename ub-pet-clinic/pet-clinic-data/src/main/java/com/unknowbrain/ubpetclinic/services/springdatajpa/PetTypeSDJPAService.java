@@ -20,8 +20,8 @@ public class PetTypeSDJPAService implements PetTypeService {
     }
 
     @Override
-    public PetType findById(Long aLong) {
-        return petTypeRepository.findById(aLong).orElseThrow(RuntimeException::new);
+    public PetType findById(Long id) {
+        return petTypeRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
     @Override
@@ -32,17 +32,17 @@ public class PetTypeSDJPAService implements PetTypeService {
     }
 
     @Override
-    public PetType save(PetType object) {
-        return petTypeRepository.save(object);
+    public PetType save(PetType petType) {
+        return petTypeRepository.save(petType);
     }
 
     @Override
-    public void delete(PetType object) {
-        petTypeRepository.delete(object);
+    public void delete(PetType petType) {
+        petTypeRepository.delete(petType);
     }
 
     @Override
-    public void deleteById(Long aLong) {
-        petTypeRepository.deleteById(aLong);
+    public void deleteById(Long id) {
+        petTypeRepository.deleteById(id);
     }
 }

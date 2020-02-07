@@ -31,8 +31,8 @@ public class OwnerSDJPAService implements OwnerService {
     }
 
     @Override
-    public Owner findById(Long aLong) {
-        return ownerRepository.findById(aLong).orElseThrow(RuntimeException::new);
+    public Owner findById(Long id) {
+        return ownerRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
     @Override
@@ -43,17 +43,17 @@ public class OwnerSDJPAService implements OwnerService {
     }
 
     @Override
-    public Owner save(Owner object) {
-        return ownerRepository.save(object);
+    public Owner save(Owner owner) {
+        return ownerRepository.save(owner);
     }
 
     @Override
-    public void delete(Owner object) {
-        ownerRepository.delete(object);
+    public void delete(Owner owner) {
+        ownerRepository.delete(owner);
     }
 
     @Override
-    public void deleteById(Long aLong) {
-        ownerRepository.deleteById(aLong);
+    public void deleteById(Long id) {
+        ownerRepository.deleteById(id);
     }
 }
