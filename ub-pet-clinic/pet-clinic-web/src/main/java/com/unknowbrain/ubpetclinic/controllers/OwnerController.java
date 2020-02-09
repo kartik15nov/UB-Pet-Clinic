@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @Controller
 public class OwnerController {
 
-    private OwnerService ownerService;
+    private final OwnerService ownerService;
 
     public OwnerController(OwnerService ownerService) {
         this.ownerService = ownerService;
