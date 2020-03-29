@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class VetController {
 
-    private VetService vetService;
+    private final VetService vetService;
 
     public VetController(VetService vetService) {
         this.vetService = vetService;
