@@ -31,15 +31,8 @@ public class OwnerSDJPAService implements OwnerService {
     }
 
     @Override
-    public List<Owner> findByLatNameLike(String s) {
-        ArrayList<Owner> owners = new ArrayList<>();
-        ownerRepository.findAll().forEach(owner -> {
-            if (owner.getLastName() != null && owner.getLastName().contains(s)) {
-                owners.add(owner);
-            }
-        });
-
-        return owners;
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return ownerRepository.findAllByLastNameLike(lastName);
     }
 
     @Override

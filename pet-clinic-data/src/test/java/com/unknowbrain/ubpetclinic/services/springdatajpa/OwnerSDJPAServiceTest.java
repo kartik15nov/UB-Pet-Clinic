@@ -119,10 +119,10 @@ class OwnerSDJPAServiceTest {
         owners.add(owner1);
         owners.add(owner2);
 
-        when(ownerRepository.findAll()).thenReturn(owners);
+        when(ownerRepository.findAllByLastNameLike(anyString())).thenReturn(owners);
 
         //when
-        List<Owner> list = service.findByLatNameLike("Sah");
+        List<Owner> list = service.findAllByLastNameLike("Sah");
 
         //then
         assertEquals(owners.size(), list.size());
