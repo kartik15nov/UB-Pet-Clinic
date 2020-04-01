@@ -5,7 +5,7 @@ import com.unknowbrain.ubpetclinic.services.PetService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
+import java.util.List;
 
 @Service
 @Profile({"default", "map"})
@@ -17,7 +17,7 @@ public class PetMapService extends AbstractMapService<Pet, Long> implements PetS
     }
 
     @Override
-    public Set<Pet> findAll() {
+    public List<Pet> findAll() {
         return super.findAll();
     }
 

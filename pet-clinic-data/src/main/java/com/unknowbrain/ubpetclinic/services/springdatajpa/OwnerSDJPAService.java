@@ -8,8 +8,8 @@ import com.unknowbrain.ubpetclinic.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Profile("springdatajpa")
@@ -31,13 +31,25 @@ public class OwnerSDJPAService implements OwnerService {
     }
 
     @Override
+    public List<Owner> findByLatNameLike(String s) {
+        ArrayList<Owner> owners = new ArrayList<>();
+        ownerRepository.findAll().forEach(owner -> {
+            if (owner.getLastName() != null && owner.getLastName().contains(s)) {
+                owners.add(owner);
+            }
+        });
+
+        return owners;
+    }
+
+    @Override
     public Owner findById(Long id) {
         return ownerRepository.findById(id).orElse(null);
     }
 
     @Override
-    public Set<Owner> findAll() {
-        Set<Owner> owners = new HashSet<>();
+    public List<Owner> findAll() {
+        List<Owner> owners = new ArrayList<>();
         ownerRepository.findAll().forEach(owners::add);
         return owners;
     }

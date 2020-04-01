@@ -11,9 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -82,7 +80,7 @@ class OwnerSDJPAServiceTest {
 
         when(ownerRepository.findAll()).thenReturn(returnedOwners);
 
-        Set<Owner> owners = service.findAll();
+        List<Owner> owners = service.findAll();
         assertEquals(2, owners.size());
     }
 
@@ -109,5 +107,24 @@ class OwnerSDJPAServiceTest {
         service.deleteById(1L);
 
         verify(ownerRepository).deleteById(anyLong());
+    }
+
+    @Test
+    void findByLatNameLike() {
+        //given
+        Owner owner1 = Owner.builder().id(1L).lastName("Sahoo").build();
+        Owner owner2 = Owner.builder().id(2L).lastName("Sah").build();
+
+        ArrayList<Owner> owners = new ArrayList<>();
+        owners.add(owner1);
+        owners.add(owner2);
+
+        when(ownerRepository.findAll()).thenReturn(owners);
+
+        //when
+        List<Owner> list = service.findByLatNameLike("Sah");
+
+        //then
+        assertEquals(owners.size(), list.size());
     }
 }

@@ -6,8 +6,8 @@ import com.unknowbrain.ubpetclinic.services.VisitService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Profile("springdatajpa")
@@ -25,8 +25,8 @@ public class VisitSDJPAService implements VisitService {
     }
 
     @Override
-    public Set<Visit> findAll() {
-        Set<Visit> visits = new HashSet<>();
+    public List<Visit> findAll() {
+        List<Visit> visits = new ArrayList<>();
         visitRepository.findAll().forEach(visits::add);
         return visits;
     }

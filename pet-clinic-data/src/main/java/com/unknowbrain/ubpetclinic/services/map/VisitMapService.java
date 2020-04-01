@@ -5,8 +5,8 @@ import com.unknowbrain.ubpetclinic.services.VisitService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Service
 @Profile({"default", "map"})
@@ -18,7 +18,7 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
     }
 
     @Override
-    public Set<Visit> findAll() {
+    public List<Visit> findAll() {
         return super.findAll();
     }
 
