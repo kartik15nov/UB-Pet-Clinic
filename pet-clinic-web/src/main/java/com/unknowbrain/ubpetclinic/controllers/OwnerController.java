@@ -29,7 +29,7 @@ public class OwnerController {
     }
 
     @GetMapping
-    public String findOwnersForm(Owner owner, BindingResult result, Model model) {
+    public String processFindOwnersForm(Owner owner, BindingResult result, Model model) {
         if (owner.getLastName() == null)
             owner.setLastName("");
 

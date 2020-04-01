@@ -48,7 +48,7 @@ class OwnerControllerTest {
     }
 
     @Test
-    void findOwners() throws Exception {
+    void findOwnersForm() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/owners/find"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("owners/findOwners"))
@@ -59,7 +59,7 @@ class OwnerControllerTest {
     }
 
     @Test
-    void findAllByLastNameLikeReturnsMany() throws Exception {
+    void processFindOwnersFormReturnsMany() throws Exception {
         when(ownerService.findByLatNameLike(anyString())).thenReturn(owners);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/owners"))
@@ -69,7 +69,7 @@ class OwnerControllerTest {
     }
 
     @Test
-    void findAllByLastNameLikeReturnsOne() throws Exception {
+    void processFindOwnersFormReturnsOne() throws Exception {
         when(ownerService.findByLatNameLike(anyString())).thenReturn(Collections.singletonList(Owner.builder().id(1L).build()));
 
         mockMvc.perform(MockMvcRequestBuilders.get("/owners"))
