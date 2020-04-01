@@ -4,6 +4,7 @@ import com.unknowbrain.ubpetclinic.model.Owner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,7 +33,7 @@ class OwnerMapServiceTest {
 
     @Test
     void findAll() {
-        Set<Owner> owners = ownerMapService.findAll();
+        List<Owner> owners = ownerMapService.findAll();
 
         assertEquals(1, owners.size());
     }

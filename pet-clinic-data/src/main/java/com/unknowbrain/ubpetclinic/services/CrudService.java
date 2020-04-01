@@ -1,12 +1,12 @@
 package com.unknowbrain.ubpetclinic.services;
 
-import java.util.Set;
+import java.util.List;
 
 public interface CrudService<T, ID> {
 
     T findById(ID id);
 
-    Set<T> findAll();
+    List<T> findAll();
 
     T save(T object);
 
