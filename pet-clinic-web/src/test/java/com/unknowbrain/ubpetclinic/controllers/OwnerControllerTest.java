@@ -68,6 +68,17 @@ class OwnerControllerTest {
     }
 
     @Test
+    void processFindOwnersFormIfPassedEmptyThenReturnsAll() throws Exception {
+        when(ownerService.findAllByLastNameLike(anyString())).thenReturn(owners);
+
+        mockMvc.perform(get("/owners")
+                .param("lastName", ""))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/ownersList"))
+                .andExpect(model().attribute("selections", hasSize(2)));
+    }
+
+    @Test
     void processFindOwnersFormReturnsOne() throws Exception {
         when(ownerService.findAllByLastNameLike(anyString())).thenReturn(Collections.singletonList(Owner.builder().id(1L).build()));
 
