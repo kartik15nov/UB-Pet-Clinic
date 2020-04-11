@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>ub-pet-clinic</artifactId>
         <groupId>com.unknowbrain</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>pet-clinic-web</artifactId>
 
     <properties>
@@ -16,7 +16,7 @@
         <webjars-bootstrap.version>3.3.6</webjars-bootstrap.version>
         <webjars-jquery-ui.version>1.11.4</webjars-jquery-ui.version>
         <webjars-jquery.version>2.2.4</webjars-jquery.version>
-        <wro4j.version>1.8.0</wro4j.version>
+        <wro4j.version>1.9.0</wro4j.version>
     </properties>
 
     <dependencies>
@@ -48,6 +48,7 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -86,6 +87,7 @@
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -120,7 +122,7 @@
                     <dependency>
                         <groupId>org.mockito</groupId>
                         <artifactId>mockito-core</artifactId>
-                        <version>${mockito.version}</version>
+                        <version>3.3.3</version>
                     </dependency>
                 </dependencies>
             </plugin>
