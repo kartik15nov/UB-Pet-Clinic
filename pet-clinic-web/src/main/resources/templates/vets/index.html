@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>List of Vets</title>
 </head>
 <body>
-<h2 th:text="'List of Vets'">List of Vets..</h2>
+<!--/*@thymesVar id="vet" type="com.unknownbrain.ubpetclinic.model.Vet"*/-->
+<h2>Veterinarians</h2>
 
-<table class="table table-striped">
+<table id="vets" class="table table-striped">
     <thead>
     <tr>
-        <th>Id</th>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th>Name</th>
+        <th>Specialties</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="vet : ${vetsList}">
-        <td th:text="${vet.id}">1</td>
-        <td th:text="${vet.firstName}">KuttaDoc</td>
-        <td th:text="${vet.lastName}">Bala</td>
+    <tr th:each="vet : ${vets}">
+        <td th:text="${vet.firstName + ' ' + vet.lastName}">Vet's FirstName LastName</td>
+        <td><span th:each="specialty : ${vet.specialties}"
+                  th:text="${specialty.description + ', '}"></span>
+            <span th:if="${vet?.specialties?.size() == 0}">none</span>
+        </td>
     </tr>
     </tbody>
 </table>
